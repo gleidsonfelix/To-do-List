@@ -1,0 +1,111 @@
+:root {
+    --primary-color: #28a745;
+    --secondary-color: #dc3545;
+    --background-color: #f4f4f4;
+    --text-color: #333; 
+    --border-color: #ccc; 
+    --padding-default: 10px; 
+    --gap-default: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+
+.todo-container {
+
+    border: 1px solid var(--border-color);
+    width: 85%;
+    height: 80%;
+
+    max-width: 85%;
+    max-height: 80%;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-default);
+
+    padding: var(--gap-default);
+
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+.todo-container .formTask {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--gap-default);
+}
+
+
+.todo-container .formTask .taskInputContainer .screenReader {
+    display: none;
+}
+
+.todo-container .formTask .taskInputContainer input{
+    width: 100%;
+    padding: var(--padding-default);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.input-container input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
+
+.todo-container .formTask button{
+    padding: var(--padding-default);
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.todo-container .formTask button:hover {
+    background-color: darken(var(--primary-color), 10%);
+}
+
+
+
+/*Desktop*/
+
+@media (min-width: 700px) {
+
+
+.todo-container {
+
+    max-width: 50%;
+    max-height: 70%;
+
+}
+
+.todo-container .formTask {
+    justify-content: center;
+}
+
+
+}
