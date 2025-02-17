@@ -14,6 +14,11 @@ addNewTask.addEventListener("click", (e) => {
 
     if (newTask.value.trim() === "") {
 
+        const firstErrorMsg = document.querySelector(".errorMsg");
+
+        if (!firstErrorMsg) {
+
+
         const errorMessage = document.createElement("p");
         errorMessage.innerText = 'Por favor, insira uma tarefa';
         errorMessage.classList.add("errorMsg");
@@ -26,6 +31,9 @@ addNewTask.addEventListener("click", (e) => {
         }, 2000);
 
         return;
+
+
+        }
 
     /*começo da inserção das tarefas*/    
 
