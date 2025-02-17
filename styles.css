@@ -101,6 +101,8 @@ body {
 }
 
 .todo-container .task-container .errorMsg {
+    display: flex;
+    align-self: flex-start;
     color: var(--secondary-color);
 }
 
@@ -136,6 +138,10 @@ body {
 
 .todo-container .formTask {
     justify-content: center;
+}
+
+.todo-container .task-container .errorMsg {
+    margin-left: 100px;
 }
 
 

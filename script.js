@@ -3,6 +3,27 @@ const newTask = document.querySelector("#taskinput");
 const tasksContainer = document.querySelector(".task-container");
 
 
+function errorMenssages(container, message, duration = 2000) {
+
+    const firstErrorMsg = document.querySelector(".errorMsg");
+
+    if (!firstErrorMsg) {
+
+        const errorAlert = document.createElement("p");
+        errorAlert.innerText = message;
+        errorAlert.classList.add("errorMsg");
+
+        container.appendChild(errorAlert);
+
+    setTimeout(() => {
+
+        container.removeChild(errorAlert);
+
+    }, duration);
+
+  }
+}
+
 
 addNewTask.addEventListener("click", (e) => {
 
@@ -14,26 +35,12 @@ addNewTask.addEventListener("click", (e) => {
 
     if (newTask.value.trim() === "") {
 
-        const firstErrorMsg = document.querySelector(".errorMsg");
 
-        if (!firstErrorMsg) {
+        /*chamada de função para mostrar mensagem de erro*/
 
-
-        const errorMessage = document.createElement("p");
-        errorMessage.innerText = 'Por favor, insira uma tarefa';
-        errorMessage.classList.add("errorMsg");
-        tasksContainer.appendChild(errorMessage);
-
-        setTimeout(() => {
-
-            tasksContainer.removeChild(errorMessage);
-
-        }, 2000);
+        errorMenssages(tasksContainer, 'Por favor, insira uma tarefa');
 
         return;
-
-
-        }
 
     /*começo da inserção das tarefas*/    
 
