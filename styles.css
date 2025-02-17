@@ -106,11 +106,14 @@ body {
     padding: var(--padding-default);
 }
 
-
-.todo-container .task-container .task .options #create-btn, #delete-btn {
-    cursor: pointer;
+.todo-container .task-container .task .options {
+    display: flex;
+    gap: 30px;
 }
 
+.todo-container .task-container .task .options #editTaskBtn, #removeTaskBtn {
+    cursor: pointer;
+}
 
 
 
