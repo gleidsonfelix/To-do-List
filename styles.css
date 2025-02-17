@@ -90,6 +90,7 @@ body {
 }
 
 
+
 .todo-container .task-container {
     height: 90%;
     max-height: 90%;
@@ -97,6 +98,10 @@ body {
     display: flex;
     flex-direction: column;
     gap: var(--gap-default);
+}
+
+.todo-container .task-container .errorMsg {
+    color: var(--secondary-color);
 }
 
 .todo-container .task-container .task {

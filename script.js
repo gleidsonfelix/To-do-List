@@ -3,6 +3,7 @@ const newTask = document.querySelector("#taskinput");
 const tasksContainer = document.querySelector(".task-container");
 
 
+
 addNewTask.addEventListener("click", (e) => {
 
     /*prevent default*/
@@ -13,7 +14,16 @@ addNewTask.addEventListener("click", (e) => {
 
     if (newTask.value.trim() === "") {
 
-        alert("Por favor, insira uma tarefa");
+        const errorMessage = document.createElement("p");
+        errorMessage.innerText = 'Por favor, insira uma tarefa';
+        errorMessage.classList.add("errorMsg");
+        tasksContainer.appendChild(errorMessage);
+
+        setTimeout(() => {
+
+            tasksContainer.removeChild(errorMessage);
+
+        }, 2000);
 
         return;
 
