@@ -23,7 +23,7 @@ addNewTask.addEventListener("click", (e) => {
         const options = document.createElement("div");
     
         task.appendChild(taskName);
-        tasksContainer.appendChild(task)
+        tasksContainer.appendChild(task);
 
     }
 
