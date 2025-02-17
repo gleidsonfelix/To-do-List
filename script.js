@@ -3,7 +3,11 @@ const newTask = document.querySelector("#taskinput");
 const tasksContainer = document.querySelector(".task-container");
 
 
+
+
 function errorMenssages(container, message, duration = 2000) {
+
+    /*verificando se uma mensagem de erro já está na tela*/
 
     const firstErrorMsg = document.querySelector(".errorMsg");
 
@@ -14,6 +18,9 @@ function errorMenssages(container, message, duration = 2000) {
         errorAlert.classList.add("errorMsg");
 
         container.appendChild(errorAlert);
+
+
+    /*removendo a mensagem de erro depois de alguns segundos*/    
 
     setTimeout(() => {
 
@@ -46,10 +53,18 @@ addNewTask.addEventListener("click", (e) => {
 
     } else {
 
+
+        /*criando a div task, onde o nome da tarefa será exibida junto com os botões*/
+
         const task = document.createElement("div");
         task.classList.add("task");
+
+        /*criando o paragrafo*/
+
         const taskName = document.createElement("p");
         taskName.innerText = newTask.value;
+
+        /*adicionando icones pelo DOM*/
 
         const editTaskIcon = document.createElement("ion-icon");
         editTaskIcon.setAttribute("name", "create-outline");
@@ -59,21 +74,30 @@ addNewTask.addEventListener("click", (e) => {
         removeTaskIcon.setAttribute("name", "trash-outline");
         removeTaskIcon.setAttribute("id", "removeTaskBtn");
 
+
+        /*criando div onde os icones vão ficar*/
+
         const options = document.createElement("div");
         options.classList.add("options");
 
         options.appendChild(editTaskIcon);
         options.appendChild(removeTaskIcon);
-    
+        
+        /*adicionando as criações anteriores a div task */
         task.appendChild(taskName);
         task.appendChild(options);
+
+        /*adicionando a div task ao container principal*/
+
         tasksContainer.appendChild(task);
 
     }
 
+    /*limpando o input depois de adicionar uma tarefa*/
 
     newTask.value = ""
 
+});
 
 
-})
+

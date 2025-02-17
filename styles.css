@@ -113,6 +113,11 @@ body {
     padding: var(--padding-default);
 }
 
+.todo-container .task-container .task:hover {
+    cursor: pointer;
+    border: 1px solid var(--border-color);
+}
+
 .todo-container .task-container .task .options {
     display: flex;
     gap: 30px;
