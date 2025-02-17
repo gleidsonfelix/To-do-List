@@ -2,7 +2,11 @@ const addNewTask = document.querySelector("#addTaskBtn");
 const newTask = document.querySelector("#taskinput");
 const tasksContainer = document.querySelector(".task-container");
 
+const tasksLimitModal = document.querySelector("#tasksLimit");
+const tasksLimitButton = document.querySelector("#tasksLimitBtn");
 
+
+let tasksList = [];
 
 
 function errorMenssages(container, message, duration = 2000) {
@@ -32,6 +36,7 @@ function errorMenssages(container, message, duration = 2000) {
 }
 
 
+
 addNewTask.addEventListener("click", (e) => {
 
     /*prevent default*/
@@ -52,6 +57,16 @@ addNewTask.addEventListener("click", (e) => {
     /*começo da inserção das tarefas*/    
 
     } else {
+
+          /*Verificando se o taskList atingiu o limite máximo*/
+
+       if (tasksList.length >= 5) {
+
+        tasksLimitModal.classList.toggle("modal");
+
+        return;
+
+       } 
 
 
         /*criando a div task, onde o nome da tarefa será exibida junto com os botões*/
@@ -74,8 +89,7 @@ addNewTask.addEventListener("click", (e) => {
         removeTaskIcon.setAttribute("name", "trash-outline");
         removeTaskIcon.setAttribute("id", "removeTaskBtn");
 
-
-        /*criando div onde os icones vão ficar*/
+         /*criando div onde os icones vão ficar*/
 
         const options = document.createElement("div");
         options.classList.add("options");
@@ -87,9 +101,21 @@ addNewTask.addEventListener("click", (e) => {
         task.appendChild(taskName);
         task.appendChild(options);
 
-        /*adicionando a div task ao container principal*/
+        /*adicionando a div task ao container principal e a tasksList*/
 
         tasksContainer.appendChild(task);
+
+        tasksList.push(task)
+
+        /*adicionando eventListener aos botões da task*/
+
+       removeTaskIcon.addEventListener("click", () => {
+
+            tasksContainer.removeChild(task)
+
+       })
+
+    
 
     }
 
@@ -100,4 +126,9 @@ addNewTask.addEventListener("click", (e) => {
 });
 
 
+tasksLimitButton.addEventListener("click", () => {
 
+
+tasksLimitModal.classList.toggle("modal");
+
+})
