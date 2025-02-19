@@ -110,6 +110,7 @@ body {
 }
 
 .todo-container .task-container .task {
+    border: 1px solid var(--border-color);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -123,7 +124,7 @@ body {
 
 .todo-container .task-container .task .options {
     display: flex;
-    gap: 30px;
+    gap: 20px;
 }
 
 .todo-container .task-container .task .options #editTaskBtn, #removeTaskBtn {
@@ -211,6 +212,108 @@ body {
 }
 
 
+
+
+
+
+/*Telas com height até 559px*/
+   
+@media (max-height: 559px) {
+
+    .todo-container {
+        height: 80%;
+    }
+
+    .todo-container h1 {
+        font-size: 16px;
+    }
+
+    .todo-container .formTask .taskInputContainer input{
+        padding: 5px;
+    }
+
+    .todo-container .formTask button{
+        padding: 5px;
+    }
+
+    .todo-container .task-container .task {
+        padding: 5px;
+    }
+}
+
+
+/*Telas com height até 699px*/
+   
+@media (min-height: 650px) and (max-height: 699px) {
+
+    .todo-container {
+        height: 75%;
+    }
+}
+
+/*Telas com height até 800px*/
+   
+@media (min-height: 700px) and (max-height: 800px) {
+
+    .todo-container {
+        height: 70%;
+    }
+}
+
+/*Telas com height até 900px*/
+   
+@media (min-height: 801px) and (max-height: 900px) {
+
+    .todo-container {
+        height: 60%;
+    }
+}
+
+
+/*Telas com height até 1000px*/
+   
+@media (min-height: 901px) and (max-height: 1000px) {
+
+    .todo-container {
+        height: 55%;
+    }
+}
+
+/*Telas com height a partir de 1001px até 1100px*/
+   
+@media (min-height: 1001px) and (max-height: 1100px) {
+
+    .todo-container {
+        height: 50%;
+    }
+}
+
+/*Telas com height a partir de 1101px até 1200px*/
+   
+@media (min-height: 1101px) and (max-height: 1200px) {
+
+    .todo-container {
+        height: 45%;
+    }
+}
+
+/*Telas com height a partir de 1201px até 1400px*/
+   
+@media (min-height: 1201px) and (max-height: 1400px) {
+
+    .todo-container {
+        height: 40%;
+    }
+}
+
+
+
+
+
+
+
+
+
 /*Desktop*/
 
 @media (min-width: 700px) {
@@ -219,7 +322,8 @@ body {
 .todo-container {
 
     max-width: 50%;
-    max-height: 70%;
+    max-height: 80%;
+
 
 }
 
