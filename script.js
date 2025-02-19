@@ -81,6 +81,10 @@ addNewTask.addEventListener("click", (e) => {
 
         /*adicionando icones pelo DOM*/
 
+        const completeTaskIcon = document.createElement("ion-icon");
+        completeTaskIcon.setAttribute("name","checkmark-done-outline");
+        completeTaskIcon.setAttribute("id", "completeTaskBtn");
+
         const editTaskIcon = document.createElement("ion-icon");
         editTaskIcon.setAttribute("name", "create-outline");
         editTaskIcon.setAttribute("id", "editTaskBtn");
@@ -94,6 +98,7 @@ addNewTask.addEventListener("click", (e) => {
         const options = document.createElement("div");
         options.classList.add("options");
 
+        options.appendChild(completeTaskIcon)
         options.appendChild(editTaskIcon);
         options.appendChild(removeTaskIcon);
         
@@ -111,7 +116,8 @@ addNewTask.addEventListener("click", (e) => {
 
        removeTaskIcon.addEventListener("click", () => {
 
-            tasksContainer.removeChild(task)
+            tasksContainer.removeChild(task);
+            
 
        })
 
