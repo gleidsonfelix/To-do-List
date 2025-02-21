@@ -58,7 +58,7 @@ addNewTask.addEventListener("click", (e) => {
 
     } else {
 
-          /*Verificando se o taskList atingiu o limite máximo*/
+    /*Verificando se o taskList atingiu o limite máximo*/
 
        if (tasksList.length >= 5) {
 
@@ -69,17 +69,17 @@ addNewTask.addEventListener("click", (e) => {
        } 
 
 
-        /*criando a div task, onde o nome da tarefa será exibida junto com os botões*/
+    /*criando a div task, onde o nome da tarefa será exibida junto com os botões*/
 
         const task = document.createElement("div");
         task.classList.add("task");
 
-        /*criando o paragrafo*/
+    /*criando o paragrafo*/
 
         const taskName = document.createElement("p");
         taskName.innerText = newTask.value;
 
-        /*adicionando icones pelo DOM*/
+    /*adicionando icones pelo DOM*/
 
         const completeTaskIcon = document.createElement("ion-icon");
         completeTaskIcon.setAttribute("name","checkmark-done-outline");
@@ -93,7 +93,7 @@ addNewTask.addEventListener("click", (e) => {
         removeTaskIcon.setAttribute("name", "trash-outline");
         removeTaskIcon.setAttribute("id", "removeTaskBtn");
 
-         /*criando div onde os icones vão ficar*/
+    /*criando div onde os icones vão ficar*/
 
         const options = document.createElement("div");
         options.classList.add("options");
@@ -102,17 +102,25 @@ addNewTask.addEventListener("click", (e) => {
         options.appendChild(editTaskIcon);
         options.appendChild(removeTaskIcon);
         
-        /*adicionando as criações anteriores a div task */
+    /*adicionando as criações anteriores a div task */
         task.appendChild(taskName);
         task.appendChild(options);
 
-        /*adicionando a div task ao container principal e a tasksList*/
+    /*adicionando a div task ao container principal e a tasksList*/
 
         tasksContainer.appendChild(task);
 
         tasksList.push(task)
 
-        /*adicionando eventListener aos botões da task*/
+    /*adicionando eventListener aos botões da task*/
+
+
+       completeTaskIcon.addEventListener("click", () => {
+
+           taskName.classList.toggle("complete")
+
+
+       })
 
        removeTaskIcon.addEventListener("click", () => {
 
@@ -120,6 +128,8 @@ addNewTask.addEventListener("click", (e) => {
             
 
        })
+
+
 
     
 
@@ -135,6 +145,6 @@ addNewTask.addEventListener("click", (e) => {
 tasksLimitButton.addEventListener("click", () => {
 
 
-tasksLimitModal.classList.toggle("modal");
+    tasksLimitModal.classList.toggle("modal");
 
 })
