@@ -5,6 +5,8 @@ const tasksContainer = document.querySelector(".task-container");
 const tasksLimitModal = document.querySelector("#tasksLimit");
 const tasksLimitButton = document.querySelector("#tasksLimitBtn");
 
+const searchInput = document.querySelector("#searchTask");
+
 
 let tasksList = [];
 
@@ -108,9 +110,13 @@ addNewTask.addEventListener("click", (e) => {
 
     /*adicionando a div task ao container principal e a tasksList*/
 
-        tasksContainer.appendChild(task);
+        tasksList.push(task);
 
-        tasksList.push(task)
+        for (let i = 0; i < tasksList.length; i++) {
+
+            tasksContainer.appendChild(tasksList[i])
+
+        }
 
     /*adicionando eventListener aos botões da task*/
 
@@ -124,14 +130,12 @@ addNewTask.addEventListener("click", (e) => {
 
        removeTaskIcon.addEventListener("click", () => {
 
-            tasksContainer.removeChild(task);
+            tasksContainer.removeChild(task)
+            
             
 
        })
 
-
-
-    
 
     }
 
@@ -141,10 +145,46 @@ addNewTask.addEventListener("click", (e) => {
 
 });
 
+/*Exibindo modal de erro quando o 'To do' atingir o limite maximo de tarefas*/
 
 tasksLimitButton.addEventListener("click", () => {
 
 
     tasksLimitModal.classList.toggle("modal");
 
+});
+
+/*Filtrando as tarefas por nome*/
+
+
+function filterTaskByName(filteredTasksList) {
+
+    tasksContainer.innerHTML = ''
+
+    filteredTasksList.forEach((taskName) => {
+
+        tasksContainer.appendChild(taskName);
+
+        console.log(tasksContainer)
+
+    })
+
+   
+
+}
+
+
+searchInput.addEventListener("input", (e) => {
+
+    let searchTasks = e.target.value.toLowerCase();
+
+
+    let filteredTasks = tasksList.filter(task => task.innerText.toLowerCase().includes(searchTasks));
+
+
+    filterTaskByName(filteredTasks);
+    
+
 })
+
+
