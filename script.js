@@ -132,7 +132,7 @@ addNewTask.addEventListener("click", (e) => {
 
             tasksContainer.removeChild(task)
             
-            
+            tasksList = tasksList.filter(t => t !== task)
 
        })
 
@@ -141,7 +141,8 @@ addNewTask.addEventListener("click", (e) => {
 
     /*limpando o input depois de adicionar uma tarefa*/
 
-    newTask.value = ""
+    newTask.value = "";
+    newTask.focus();
 
 });
 
